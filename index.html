@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NAVIGATION</title>
+    <link rel="stylesheet" href="css/1.css">
+</head>
+<body>
+    <div id="main">
+
+    </div>
+    <script>
+    var keybd = [["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", ], ["a", "s", "d", "f", "g", "h", "j", "k", "l"], ["z", "x", "c", "v", "b", "n", "m"]];
+    var hash = {
+        'a': 'acfun.cn',
+        'b': 'baidu.com',
+        'q': 'qq.com',
+    }
+    hashLocalStorage = JSON.parse(localStorage.getItem("zzz") || 'null')
+    if (hashLocalStorage) {
+        hash = hashLocalStorage
+    }
+    for (var index = 0; index < keybd.length; index++) {
+        div1 = document.createElement('div')
+        document.getElementById('main').appendChild(div1)
+        for (var index1 = 0; index1 < keybd[index].length; index1++) {
+            kbd = document.createElement('kbd')
+            div1.appendChild(kbd)
+            kbd.innerHTML = keybd[index][index1]
+            editButton = document.createElement('button')
+            kbd.appendChild(editButton)
+            editButton.innerHTML = "编辑"
+            editButton.id = keybd[index][index1]
+            editButton.onclick = function (x) {
+                key = x.target.id
+                editWebsite = prompt("请输入要修改的网址")
+                hash[key] = editWebsite
+                localStorage.setItem('zzz', JSON.stringify(hash))
+            }
+        }
+    }
+    document.onkeypress = function (x) {
+        key = x.key
+        website = hash[key] 
+        window.open('http://' + website, '_blank')
+    }
+    </script>
+</body>
+</html>

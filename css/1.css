@@ -1,0 +1,25 @@
+#main{
+
+}
+#main > div {
+    text-align: center;
+}
+#main > div > kbd {
+    position: relative;
+    border: 1px solid red;
+    margin: 10px;
+    padding: 20px;
+    display: inline-block;
+}
+button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+    background-color: #fff;
+    border: #fff;
+    display: none;
+}
+kbd:hover > button {
+     display: inline-block;
+}
