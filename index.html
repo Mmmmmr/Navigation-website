@@ -28,7 +28,7 @@
         for (var index1 = 0; index1 < keybd[index].length; index1++) {
             kbd = document.createElement('kbd')
             div1.appendChild(kbd)
-            kbd.innerHTML = keybd[index][index1]
+            kbd.innerHTML = keybd[index][index1].toUpperCase()
             editButton = document.createElement('button')
             kbd.appendChild(editButton)
             editButton.innerHTML = "编辑"
